@@ -2,12 +2,12 @@ import React from "react";
 import "./FrontPage.css";
 import bg from "../../assets/video/bg.mp4";
 import logo from "../../assets/photo/logo.svg";
-import Navbar from "../navbar/Navbar";
+import SideBar from "../navbar/SideBar";
 
 function FrontPage() {
   return (
     <div className="video-container">
-      <Navbar />
+      <SideBar />
       <video autoPlay loop muted playsInline className="video-bg">
         <source src={bg} type="video/mp4" />
       </video>
