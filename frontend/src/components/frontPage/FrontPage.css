@@ -38,15 +38,19 @@
     cursor: pointer;
   }
   
-  .content>p{
+  .content-category{
       border: 1px solid #ffffff;
       max-width: 350px;
       margin: auto;
       margin-bottom: 15px;
       padding: 5px 0px;
+      color: #ffffff;
+  }
+  .link{
+    text-decoration: none;
   }
   
-  .content>p:hover{
+  .content-.content-category{
       cursor: pointer;
   }
   
