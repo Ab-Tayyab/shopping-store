@@ -3,22 +3,21 @@ import { useLocation, useNavigate } from "react-router-dom";
 import menData from "../data/menData";
 import womenData from "../data/womenData";
 import kidsData from "../data/kidsData";
-import './Home.css';
+import "./Home.css";
 import Navbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 
 function Home() {
   const location = useLocation();
-  const navigate = useNavigate(); // for routing when clicking on an image
+  const navigate = useNavigate(); 
   const [category, setCategory] = useState("");
   const [categoryData, setCategoryData] = useState(null);
 
-  // Parse the query parameters to get the category
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const categoryParam = params.get("category");
     setCategory(categoryParam || "");
 
-    // Load the correct data based on the category
     switch (categoryParam) {
       case "men":
         setCategoryData(menData[0]);
@@ -35,9 +34,7 @@ function Home() {
     }
   }, [location]);
 
-  // Handle image click to navigate to product details
   const handleImageClick = (productCategory) => {
-    // Navigate to the products page and pass category in the URL
     navigate(`/products/${productCategory}`, { state: { category } });
   };
 
@@ -52,13 +49,24 @@ function Home() {
               src={item.img}
               alt={`${category} banner ${index + 1}`}
               className="category-image"
-              onClick={() => handleImageClick(item.category)} // Pass the specific category for routing
-              style={{ cursor: "pointer" }} // Make it clear that images are clickable
+              onClick={() => handleImageClick(item.category)}
+              style={{ cursor: "pointer" }}
             />
           ))
         ) : (
           <p>Please select a category</p>
         )}
+        <div className="home-contact">
+          <form>
+            <h1>GET THE LATEST TRENDS FIRST</h1>
+            <div>
+              <input type="email" placeholder=" " required />
+              <label>Email Address</label>
+              <i className="fa fa-long-arrow-right"></i>
+            </div>
+          </form>
+        </div>
+        <Footer />
       </div>
     </div>
   );

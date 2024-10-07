@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/photo/logo2.webp";
 import "./SideBar.css";
+import { Link } from "react-router-dom";
 
 function SideBar() {
   const [menu, setMenu] = useState(false);
@@ -26,7 +27,9 @@ function SideBar() {
             <p>Home</p>
             <p>Account</p>
             <p>Order</p>
-            <p>Contact</p>
+            <Link to="/register" style={{textDecoration:"none", color:"black"}}>
+              <p>Contact</p>
+            </Link>
           </div>
         </div>
       </nav>
