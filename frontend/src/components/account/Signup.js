@@ -1,11 +1,15 @@
 import React from "react";
 import "./Signup.css";
-import account from '../../assets/photo/account.jpeg';
+import account from "../../assets/photo/account.jpeg";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
     <div className="signup">
-      <div>
+      <div className="img-container">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <i className="fa fa-long-arrow-left return-arrow"></i>
+        </Link>
         <img src={account} alt="tasveer" />
       </div>
       <div>
@@ -34,11 +38,17 @@ const Signup = () => {
 
           <p>
             By clicking “ACCEPT AND CONTINUE”, I confirm that I have read and
-            accept the Terms and Conditions of use and purchase, and I understand
-            the information on the use of my personal data provided in the Privacy Policy.
+            accept the Terms and Conditions of use and purchase, and I
+            understand the information on the use of my personal data provided
+            in the Privacy Policy.
           </p>
 
-          <button>Agree and Continue</button>
+          <button className="submit-btn">AGREE AND CONTINUE</button>
+          <Link to="/login" style={{ textDecoration: "none" }}>
+            <button className="toggle-btn submit-btn">
+              ALREADY HAVE ACCOUNT
+            </button>
+          </Link>
         </form>
       </div>
     </div>

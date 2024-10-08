@@ -25,11 +25,11 @@ function SideBar() {
         <div className="page-link">
           <div>
             <p>Home</p>
-            <p>Account</p>
-            <p>Order</p>
             <Link to="/register" style={{textDecoration:"none", color:"black"}}>
-              <p>Contact</p>
+            <p>Account</p>
             </Link>
+            <p>Order</p>
+              <p>Contact</p>
           </div>
         </div>
       </nav>
