@@ -6,7 +6,7 @@ import kidsFemaleClothBanner2 from "../../assets/photo/kids/banner-5.jpeg";
 import kidsSaleBanner from "../../assets/photo/kids/banner-6.jpeg";
 import kidsDealBanner from "../../assets/photo/kids/banner-7.jpeg";
 
-const kidsData = [
+const kidsBannerData = [
   {
     category: "kids",
     images: [
@@ -41,4 +41,4 @@ const kidsData = [
   },
 ];
 
-export default kidsData;
+export default kidsBannerData;

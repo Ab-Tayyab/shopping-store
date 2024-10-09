@@ -6,7 +6,7 @@ import womenSaleBanner from "../../assets/photo/women/banner-5.jpeg";
 import womenDealBanner from "../../assets/photo/women/banner-6.jpeg";
 
 
-const womenData = [
+const womenBannerData = [
   {
     category: "women",
     images: [
@@ -38,4 +38,4 @@ const womenData = [
   },
 ];
 
-export default womenData;
+export default womenBannerData;

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import menData from "../data/menData";
-import womenData from "../data/womenData";
-import kidsData from "../data/kidsData";
+import menBannerData from "../data/menData";
+import womenBannerData from "../data/womenData";
+import kidsBannerData from "../data/kidsData";
 import "./Home.css";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
@@ -11,45 +11,52 @@ function Home() {
   const location = useLocation();
   const navigate = useNavigate(); 
   const [category, setCategory] = useState("");
-  const [categoryData, setCategoryData] = useState(null);
+  const [categoryData, setCategoryData] = useState({});
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const categoryParam = params.get("category");
     setCategory(categoryParam || "");
 
+    let selectedCategoryData = null;
+
     switch (categoryParam) {
       case "men":
-        setCategoryData(menData[0]);
+        selectedCategoryData = menBannerData[0];
         break;
       case "women":
-        setCategoryData(womenData[0]);
+        selectedCategoryData = womenBannerData[0];
         break;
       case "kids":
-        setCategoryData(kidsData[0]);
+        selectedCategoryData = kidsBannerData[0];
         break;
       default:
-        setCategoryData(null);
+        selectedCategoryData = null;
         break;
+    }
+
+    if (selectedCategoryData) {
+      const { mainCategory, images } = selectedCategoryData; // Destructure the main category and images
+      setCategoryData({ mainCategory, images });
     }
   }, [location]);
 
-  const handleImageClick = (productCategory) => {
-    navigate(`/products/${productCategory}`, { state: { category } });
+  const handleImageClick = (mainCategory, subCategory) => {
+    navigate(`/products?category=${mainCategory}&subCategory=${subCategory}`);
   };
 
   return (
     <div className="home-container">
       <Navbar />
       <div className="category-images">
-        {categoryData ? (
+        {categoryData.images ? (
           categoryData.images.map((item, index) => (
             <img
               key={index}
               src={item.img}
-              alt={`${category} banner ${index + 1}`}
+              alt={`${categoryData.mainCategory} banner ${index + 1}`}
               className="category-image"
-              onClick={() => handleImageClick(item.category)}
+              onClick={() => handleImageClick(categoryData.mainCategory, item.category)}
               style={{ cursor: "pointer" }}
             />
           ))

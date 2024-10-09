@@ -4,13 +4,13 @@ import menShoeBanner2 from "../../assets/photo/men/banner-3.jpeg";
 import menSaleBanner from "../../assets/photo/men/banner-4.jpeg";
 import menDealBanner from "../../assets/photo/men/banner-5.jpeg";
 
-const menData = [
+const menBannerData = [
   {
-    category: "men",
+    mainCategory: "men",
     images: [
       {
         img: menShoeBanner1,
-        category: "shoes",
+        category: "shoe",
       },
       {
         img: menClothBanner,
@@ -18,11 +18,11 @@ const menData = [
       },
       {
         img: menShoeBanner2,
-        category: "shoes",
+        category: "shoe",
       },
       {
         img: menSaleBanner,
-        category: "Sale",
+        category: "sale",
       },
       {
         img: menDealBanner,
@@ -32,4 +32,4 @@ const menData = [
   },
 ];
 
-export default menData;
+export default menBannerData;
