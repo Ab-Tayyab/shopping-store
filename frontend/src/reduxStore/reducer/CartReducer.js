@@ -1,5 +1,3 @@
-// reducers/cartReducer.js
-
 const initialState = {
   items: [],
   totalAmount: 0,
@@ -34,22 +32,22 @@ const cartReducer = (state = initialState, action) => {
         items: updatedItems,
       };
 
-    case 'INCREASE_QTY':
-      const increaseIndex = state.items.findIndex(item => item.id === action.payload.id);
-      const increaseItem = state.items[increaseIndex];
+      case 'INCREASE_QTY':
+        const increaseIndex = state.items.findIndex(item => item.id === action.payload.itemId);
+        const increaseItem = state.items[increaseIndex];
       
-      // Check against menDataCollection to get max stock
-      const increaseProductData = action.payload.menDataCollection.find(prod => prod.id === action.payload.id);
+        // Check if menDataCollection is defined and find the product
+        const increaseProductData = action.payload.menDataCollection && action.payload.menDataCollection.find(prod => prod.id === action.payload.itemId);
       
-      if (increaseItem && increaseProductData && increaseItem.qty < increaseProductData.qty) {
-        const itemsWithIncreasedQty = [...state.items];
-        itemsWithIncreasedQty[increaseIndex].qty++;
-        return {
-          ...state,
-          items: itemsWithIncreasedQty,
-        };
-      }
-      return state;
+        if (increaseItem && increaseProductData && increaseItem.qty < increaseProductData.qty) {
+          const itemsWithIncreasedQty = [...state.items];
+          itemsWithIncreasedQty[increaseIndex].qty++;
+          return {
+            ...state,
+            items: itemsWithIncreasedQty,
+          };
+        }
+        return state;
 
     case 'DECREASE_QTY':
       const decreaseIndex = state.items.findIndex(item => item.id === action.payload);

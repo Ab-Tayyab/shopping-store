@@ -1,8 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, increaseQty, decreaseQty } from "../../reduxStore/action/CartAction";
-import menDataCollection from "../data/menCollections"; 
-import "./ShoppingCart.css"; 
+import {
+  removeFromCart,
+  increaseQty,
+  decreaseQty,
+} from "../../reduxStore/action/CartAction";
+import menDataCollection from "../data/menCollections";
+import "./ShoppingCart.css"; // Ensure your CSS reflects the new design
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -14,7 +18,7 @@ const ShoppingCart = () => {
   
     items.forEach((item) => {
       const product = menDataCollection.find((product) => product.id === item.id);
-      if (product) { // Check if the product exists
+      if (product) {
         const discount = product.discount ? parseFloat(product.discount) / 100 : 0;
         const price = item.qty * product.price;
         const discountedPrice = price * (1 - discount);
@@ -24,11 +28,12 @@ const ShoppingCart = () => {
       }
     });
   
-    return { total, discountedTotal };
+    return { total, discountedTotal }; // Correct keys
   };
   
-
-  const { totalAmount, discountedAmount } = calculateTotal();
+  // Use the correct variable names when destructuring
+  const { total: totalAmount, discountedTotal: discountedAmount } = calculateTotal();
+  
 
   return (
     <div className="shopping-cart">
@@ -36,35 +41,59 @@ const ShoppingCart = () => {
       {items.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <ul>
+        <ul className="cart-items">
           {items.map((item) => (
-            <li key={item.id}>
-              <img src={item.img} alt={item.name} />
-              <h3>{item.name}</h3>
-              <p>Price: ${item.price.toFixed(2)}</p>
-              <p>Quantity: {item.qty}</p>
-              <button onClick={() => dispatch(increaseQty(item.id, menDataCollection))}>+</button>
-              <button onClick={() => dispatch(decreaseQty(item.id))}>-</button>
-              <button onClick={() => dispatch(removeFromCart(item.id))}>Remove</button>
-              <p>
+            <li key={item.id} className="cart-item">
+              {/* Product Image */}
+              <div className="product-image">
+                <img src={item.img} alt={item.name} />
+              </div>
+
+              {/* Product Details */}
+              <div className="product-details">
+                <h3>{item.name}</h3>
+                <p>Price: ${item.price.toFixed(2)}</p>
                 {item.discount && (
-                  <span>
-                    Discount: {item.discount} <br />
-                    Discounted Price: ${(item.price * (1 - parseFloat(item.discount) / 100)).toFixed(2)}
-                  </span>
+                  <p>
+                    Discount: {item.discount}% <br />
+                    Discounted Price: $
+                    {(
+                      item.price *
+                      (1 - parseFloat(item.discount) / 100)
+                    ).toFixed(2)}
+                  </p>
                 )}
-              </p>
+
+                {/* Quantity Controls */}
+                <div className="quantity-controls">
+                  <button onClick={() => dispatch(increaseQty(item.id, menDataCollection))}>
+                    +
+                  </button>
+                  <span>{item.qty}</span>
+                  <button onClick={() => dispatch(decreaseQty(item.id))}>
+                    -
+                  </button>
+                  <button onClick={() => dispatch(removeFromCart(item.id))}>
+                    Remove
+                  </button>
+                </div>
+              </div>
             </li>
           ))}
         </ul>
       )}
+
+      {/* Totals Section */}
       <div className="totals">
         <h3>Total: ${totalAmount ? totalAmount.toFixed(2) : 0}</h3>
-        <h3>Discounted Total: ${discountedAmount ? discountedAmount.toFixed(2) : 0}</h3>
+        <h3>
+          Discounted Total: $
+          {discountedAmount ? discountedAmount.toFixed(2) : 0}
+        </h3>
+        <button className="checkout-btn">Proceed to Checkout</button>
       </div>
     </div>
   );
-  
 };
 
 export default ShoppingCart;

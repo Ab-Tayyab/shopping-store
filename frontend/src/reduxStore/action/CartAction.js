@@ -27,8 +27,10 @@ export const addToCart = (id) => {
   
   export const increaseQty = (itemId, menDataCollection) => ({
     type: "INCREASE_QTY",
-    payload: itemId,
-    menDataCollection,
+    payload: {
+      itemId,
+      menDataCollection,
+    },
   });
   
   export const decreaseQty = (itemId) => ({

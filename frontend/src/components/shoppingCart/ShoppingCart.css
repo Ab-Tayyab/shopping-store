@@ -1,97 +1,50 @@
-/* ShoppingCart.css */
 .shopping-cart {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-    font-size: 2em;
-  }
-  
-  .cart-items-container {
-    margin-top: 20px;
-  }
-  
-  .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-  }
-  
-  .cart-item-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .cart-item-details {
-    flex: 1;
-    margin-left: 20px;
-  }
-  
-  .item-name {
-    font-size: 1.2em;
-    color: #555;
-  }
-  
-  .item-price, .item-discount {
-    margin-top: 5px;
-    color: #777;
-  }
-  
-  .cart-item-quantity {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .quantity-btn {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 1.1em;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .quantity-btn:disabled {
-    background-color: #ccc;
-  }
-  
-  .quantity-display {
-    margin: 0 10px;
-    font-size: 1.1em;
-  }
-  
-  .delete-btn {
-    background-color: #ff4444;
-    color: white;
-    border: none;
-    padding: 7px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .cart-summary {
-    margin-top: 20px;
-    text-align: right;
-  }
-  
-  .cart-summary h2, .cart-summary h3 {
-    color: #333;
-  }
-  
+  width: 80%;
+  margin: 0 auto;
+}
+
+.cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.product-image img {
+  width: 150px;
+  height: auto;
+}
+
+.product-details {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.size-options {
+  margin-top: 10px;
+}
+
+.totals {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.checkout-btn {
+  display: inline-block;
+  background-color: #000;
+  color: white;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}

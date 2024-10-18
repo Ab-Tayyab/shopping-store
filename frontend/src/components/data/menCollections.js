@@ -54,7 +54,7 @@ const menDataCollection = [
     qty:"9",
   },
   {
-    id: 1,
+    id: 5,
     img: s5,
     name:"L1398",
     category: "shoe",
