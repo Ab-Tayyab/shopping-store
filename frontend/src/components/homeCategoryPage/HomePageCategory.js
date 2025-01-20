@@ -1,11 +1,11 @@
 import React from "react";
-import "./FrontPage.css";
+import "./HomePageCategory.css";
 import bg from "../../assets/video/bg.mp4";
 import logo from "../../assets/photo/logo.svg";
 import SideBar from "../navbar/SideBar";
 import { Link } from "react-router-dom";
 
-function FrontPage() {
+function HomePageCategory() {
   return (
     <div className="video-container">
       <SideBar />
@@ -28,4 +28,4 @@ function FrontPage() {
   );
 }
 
-export default FrontPage;
+export default HomePageCategory;

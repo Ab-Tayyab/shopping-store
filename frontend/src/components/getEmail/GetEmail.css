@@ -1,0 +1,86 @@
+
+.home-contact {
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+  
+  .home-contact h1 {
+    font-size: 25px;
+    font-weight: 100 !important;
+    margin-bottom: 20px;
+  }
+  
+  .get-email-form {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  .get-email-input {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid black;
+    position: relative;
+    padding: 5px 10px;
+    outline: none;
+  }
+  
+  .get-email-input::placeholder {
+    color: transparent;
+  }
+  
+  .get-email-input:focus {
+    border-bottom: 1px solid black;
+  }
+  
+  .get-email-form label {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-size: 16px;
+    color: #999;
+    transition: all 0.3s ease;
+  }
+  
+  .get-email-form input:focus + label,
+  .get-email-form input:not(:placeholder-shown) + label {
+    top: -5px;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+  }
+  
+  .get-email-form i {
+    position: absolute;
+    font-size: 30px;
+    right: 0;
+  }
+  
+  .get-email-form i:hover{
+    cursor: pointer;
+  }
+  
+  .get-email-form > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-icon{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 25px;
+  }
+  
+  .contact-icon>i{
+    margin: 5px;
+  }
+
+  .contact-icon>i:hover{
+    cursor: pointer;
+  }

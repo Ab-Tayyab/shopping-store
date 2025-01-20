@@ -24,12 +24,27 @@ function SideBar() {
         <p>Sales</p>
         <div className="page-link">
           <div>
-            <p>Home</p>
-            <Link to="/register" style={{textDecoration:"none", color:"black"}}>
-            <p>Account</p>
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <p>Home</p>
             </Link>
-            <p>Order</p>
+            <Link
+              to="/register"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <p>Account</p>
+            </Link>
+            <Link
+              to="/order"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <p>Order</p>
+            </Link>
+            <Link
+              to="/contact"
+              style={{ textDecoration: "none", color: "black" }}
+            >
               <p>Contact</p>
+            </Link>
           </div>
         </div>
       </nav>
