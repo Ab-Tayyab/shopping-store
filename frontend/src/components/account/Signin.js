@@ -14,7 +14,7 @@ const Signin = () => {
       </div>
       <div>
         <form className="register">
-          <h1 className="account-heading1">Login Account</h1>
+          <h1 className="account-heading">Login Account</h1>
           <div>
             <input type="email" placeholder=" " required />
             <label>Email</label>
@@ -30,7 +30,7 @@ const Signin = () => {
           <Link to="/register" style={{ textDecoration: "none" }}>
             <button className="toggle-btn submit-btn">CREATE ACCOUNT</button>
           </Link>
-          <h1 className="account-heading2 account-heading1">
+          <h1 className="account-heading1">
             YOU CAN ALSO ACCESS WITH
           </h1>
           <p>

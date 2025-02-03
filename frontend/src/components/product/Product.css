@@ -1,5 +1,5 @@
 
-.product-container{
+.product-container>div{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -7,6 +7,13 @@
     align-items: center;
     box-sizing: border-box;
     padding: 20px;
+    z-index: 0;
+}
+
+.product-container>h1{
+    text-align: center;
+    font-size: 50px;
+    padding-top: 100px;
 }
 
 .product-card{
@@ -46,7 +53,8 @@
 
 .card-child>p{
     font-size: 20px;
-    color: black;
+    color: rgba(0, 0, 0, 0.468);
+    font-weight: 800;
 }
 
 .discount{

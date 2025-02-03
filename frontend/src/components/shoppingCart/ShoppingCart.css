@@ -1,6 +1,12 @@
 .shopping-cart {
   width: 80%;
   margin: 0 auto;
+  padding-top: 100px;
+}
+
+.shopping-cart>h2{
+  padding: 20px 0px;
+  text-align: center;
 }
 
 .grid-container {

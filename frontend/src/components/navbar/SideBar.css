@@ -1,6 +1,9 @@
 .sidebar-container{
     position: relative;
-    padding: 20px 0px 0px 20px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-left: 20px;
 }
 .sidebar-container > i {
   text-align: left;
